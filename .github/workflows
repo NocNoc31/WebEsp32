@@ -1,0 +1,31 @@
+name: Deploy to GitHub Pages  # Tên workflow
+
+on:
+  push:
+    branches:
+      - main                  # Kích hoạt khi có thay đổi trên nhánh main
+  workflow_dispatch:          # Cho phép chạy thủ công từ tab Actions
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest    # Chọn hệ điều hành để chạy (ở đây là Ubuntu)
+    
+    steps:
+      - name: Checkout repository content
+        uses: actions/checkout@v3     # Kiểm tra và lấy toàn bộ mã nguồn từ repository
+
+      - name: Build static files
+        run: |
+          # Thực hiện lệnh build cho trang web của bạn
+          # Thay "npm run build" bằng lệnh build cụ thể (ví dụ `jekyll build -d ./build` nếu dùng Jekyll)
+          npm install
+          npm run build
+
+      - name: Upload static files
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./build  # Thay "./build" bằng thư mục chứa file tĩnh sau khi build (điểm đến file sau lệnh build)
+
+      - name: Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/main'  # Chỉ triển khai nếu là nhánh chính
+        uses: actions/deploy-pages@v2
