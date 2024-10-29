@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles_new_window.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Distance Selector</title>
+</head>
+<body>
+    <header>
+        <h2>SET DISTANCE</h2>
+    </header>
+
+    <!-- Current Distance Display -->
+    <div class="input-group">
+        <label for="distance_now">KHOẢNG CÁCH HIỆN TẠI:</label>
+        <output id="distance_now">0</output>
+    </div>
+
+    <!-- Suitable Distance Dropdown -->
+    <div class="input-group">
+        <label for="desired_distance">KHOẢNG CÁCH THÍCH HỢP:</label>
+        <div class="distance-container">
+            <div class="distance-box" data-distance="92">92 cm</div>
+            <div class="distance-box" data-distance="124">124 cm</div>
+            <div class="distance-box" data-distance="166">166 cm</div>
+            <div class="distance-box" data-distance="180">180 cm</div>
+            <div class="distance-box" data-distance="186">186 cm</div>
+            <div class="distance-box" data-distance="228">228 cm</div>
+        </div>
+    </div>
+    
+    
+    <!-- Chart Section -->
+    <div id="chartContainer">
+        <canvas id="chart"></canvas>
+    </div>
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script_new_window.js"></script>
+
+    
+</body>
+</html>
